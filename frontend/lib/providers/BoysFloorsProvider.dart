@@ -1,59 +1,25 @@
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
-import 'package:host/models/GirlsFloors.dart';
+import 'package:host/models/BoysFloors.dart'; // Import the BoysFloors model
 
-class GirlsFloorsProvider extends ChangeNotifier {
-  GirlsFloors _girlsFloors = GirlsFloors(
+class BoysFloorsProvider extends ChangeNotifier {
+  BoysFloors _boysFloors = BoysFloors(
     floorNumber: 0,
     totalBeds: 0,
     availableBeds: 0,
   );
 
-  GirlsFloors get girlsFloors => _girlsFloors;
+  BoysFloors get boysFloors => _boysFloors;
 
-  void setGirlsFloorsFromJSON(String floors) {
-    _girlsFloors = GirlsFloors.fromJson(floors);
+  void setBoysFloorsFromJSON(String floors) {
+    _boysFloors = BoysFloors.fromJson(floors);
     notifyListeners();
   }
 
-  void setGirlsFloorsFromModel(GirlsFloors floors) {
-    _girlsFloors = floors;
+  void setBoysFloorsFromModel(BoysFloors floors) {
+    _boysFloors = floors;
     notifyListeners();
   }
 
-  String girlsFloorsToJson() => jsonEncode(_girlsFloors.toJson());
-  //chages herer
-  //  void allocateAvailableBeds(int floorNumber, int availableBeds) {
-  //   if (_girlsFloors.floorNumber == floorNumber) {
-  //     _girlsFloors.availableBeds = availableBeds;
-  //     notifyListeners();
-  //   }
-  // }
+  String boysFloorsToJson() => jsonEncode(_boysFloors.toJson());
 }
-// import 'package:flutter/foundation.dart';
-// import 'dart:convert';
-
-// import 'package:host/models/GirlsFloors.dart';
-
-// class GirlsFloorsProvider extends ChangeNotifier {
-//   GirlsFloors _girlsFloors = GirlsFloors(
-//     floorNumber: 0,
-//     totalBeds: 0,
-//     availableBeds: 0,
-//   );
-
-//   GirlsFloors get girlsFloors => _girlsFloors;
-
-//   void setGirlsFloors(String girlsFloors) {
-//     _girlsFloors = GirlsFloors.fromJson(json.decode(girlsFloors));
-//     notifyListeners();
-//   }
-
-//   void setGirlsFloorsFromModel(GirlsFloors floors) {
-//     _girlsFloors = floors;
-//     notifyListeners();
-//   }
-
-//   String girlsFloorsToJson() => jsonEncode(_girlsFloors.toJson());
-// }
-
